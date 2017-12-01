@@ -58,6 +58,7 @@ RSpec.describe User, :type => :model do
 
   it "defaults to admin => false" do
     expect(user.admin).to eq(false)
+    #https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
   end
 
   it "has many rides" do
