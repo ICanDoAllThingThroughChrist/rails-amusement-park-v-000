@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def create
     #raise params.inspect
     @user = User.create(user_params)
+    #raise params.inspect
+    log_in(@user)
     redirect_to user_path(@user)#1
   end
 
