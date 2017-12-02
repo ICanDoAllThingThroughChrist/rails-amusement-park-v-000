@@ -3,6 +3,7 @@ require_relative "../rails_helper.rb"
 describe 'Feature Test: User Signup', :type => :feature do
 
   it 'successfully signs up as non-admin' do
+    #https://learn.co/tracks/full-stack-web-development-v3/rails/layouts-and-partials/simple-partials
     visit_signup
     expect(current_path).to eq('/users/new')
     user_signup
