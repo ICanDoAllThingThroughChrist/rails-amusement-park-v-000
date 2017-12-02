@@ -9,6 +9,7 @@ describe 'Feature Test: User Signup', :type => :feature do
     user_signup
     expect(current_path).to eq('/users/1')
     expect(page).to have_content("Amy Poehler")
+          #binding.pry
     expect(page).to have_content("Mood")
     expect(page).to have_content("happy")
     expect(page).to have_content("15")
