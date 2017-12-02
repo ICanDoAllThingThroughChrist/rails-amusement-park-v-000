@@ -6,6 +6,11 @@ class UsersController < ApplicationController
   def create
     raise params.inspect
     @user = User.new(user_params)
+    redirect_to user_path(@user)
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
   end
 
   def user_params
