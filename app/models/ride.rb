@@ -5,7 +5,7 @@ class Ride < ActiveRecord::Base
 
   def take_ride
       if self.not_enough_tickets && self.not_tall_enough
-      "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
+        "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
       else
         update_status
       end
@@ -25,9 +25,10 @@ class Ride < ActiveRecord::Base
 
   def update_status
     user.tickets = user.tickets.to_i - attraction.tickets.to_i
-    user.nausea = user.nausea.to_i - attraction.nausea_rating.to_i
-    user.happiness = user.happiness.to_i - attraction.happiness_rating.to_i
+    user.nausea = user.nausea.to_i + attraction.nausea_rating.to_i
+    user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
     user.save
+    binding.pry
   end
 
 
