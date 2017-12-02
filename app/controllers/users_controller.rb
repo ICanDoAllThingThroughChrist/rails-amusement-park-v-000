@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    raise params.inspect
-    @user = User.new(user_params)
-    redirect_to user_path(@user)
+    #raise params.inspect
+    @user = User.create(user_params)
+    redirect_to user_path(@user)#1
   end
 
   def show
@@ -17,3 +17,5 @@ class UsersController < ApplicationController
      params.require(:user).permit(:name, :nausea, :happiness, :tickets, :height, :password, :admin )
   end
 end
+
+#1-https://learn.co/tracks/full-stack-web-development-v3/rails/crud-with-rails/create-action
