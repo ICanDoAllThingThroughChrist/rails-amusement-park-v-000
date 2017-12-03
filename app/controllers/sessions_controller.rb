@@ -5,15 +5,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:session][:name])
-    if user && user.authenticate(params[:session][:password])
+    @user = User.find_by(name: params[:user][:name])
+    if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
       #redirect_to user
       # Log the user in and redirect to the user's show page.
     else
-      flash[:alert] = @user.errors.full_messages.join(", ")
-      render :new
+      redirect_to '/signin'
       # Create an error message
     end
   end
