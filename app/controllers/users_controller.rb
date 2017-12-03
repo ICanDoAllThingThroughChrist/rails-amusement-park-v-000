@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    raise params.inspect
+    #raise params.inspect
   end
 
   def create
