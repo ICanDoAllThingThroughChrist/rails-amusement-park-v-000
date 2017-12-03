@@ -8,5 +8,6 @@ class AttractionsController < ApplicationController
 
   def show
     @user = current_user
+    #raise params.inspect
   end
 end
