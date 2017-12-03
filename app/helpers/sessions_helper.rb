@@ -4,4 +4,6 @@ module SessionsHelper
     session[:user_id] = user.id
     #raise params.inspect
   end
+
+  
 end

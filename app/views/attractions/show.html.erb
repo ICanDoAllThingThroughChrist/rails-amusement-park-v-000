@@ -1,0 +1,4 @@
+<%= form_for(@user, html: { class: 'button_to'})  do |b| %>
+		<%= b.hidden_field :attraction, value: @attraction.id %>
+		<%= b.submit 'Go on this ride' %>
+	<% end %>
