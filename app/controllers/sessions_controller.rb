@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def create
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
     else
       flash[:alert] = @user.errors.full_messages.join(", ")
       render :new
-      # Create an error message    
+      # Create an error message
     end
   end
 end
