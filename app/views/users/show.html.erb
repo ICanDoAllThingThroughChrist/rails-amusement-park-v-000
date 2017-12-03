@@ -1,6 +1,8 @@
 <h1>Name:<%= @user.name %></h1>
+<%= 'ADMIN' if @user.admin  %>
 <p>Height<%= @user.height %></p>
 <p>Mood:<%= @user.mood %></p>
 <p>Nausea Rating<%= @user.nausea %></p>
 <p>Happiness Rating<%= @user.happiness %></p>
 <p>Tickets Balance<%= @user.tickets %></p>
+<%= link_to 'Log Out', signout_path %></p>

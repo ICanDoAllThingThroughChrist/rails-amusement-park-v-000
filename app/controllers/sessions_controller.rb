@@ -16,4 +16,8 @@ class SessionsController < ApplicationController
       # Create an error message
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+  end
 end
