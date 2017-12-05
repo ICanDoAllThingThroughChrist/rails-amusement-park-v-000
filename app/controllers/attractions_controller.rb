@@ -1,5 +1,7 @@
 class AttractionsController < ApplicationController
+
   before_action :set_attraction, only: [:show, :edit, :update]
+
   def index
     @attractions = Attraction.all
   end
@@ -28,8 +30,8 @@ class AttractionsController < ApplicationController
 			redirect_to edit_attraction_path
 		end
 	end
-  
-    private
+
+  private
 
   def attraction_params
     params.require(:attraction).permit(:name, :min_height, :happiness_rating, :nausea_rating, :tickets)
