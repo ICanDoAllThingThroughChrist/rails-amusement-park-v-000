@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if @message %>
+<% binding.pry %>
   <div class="center alert">
     <p><%= @message %></p>
   </div>
@@ -21,3 +22,4 @@
 <p>Tickets: <%= @user.tickets %></p>
 <%= link_to('See attractions', attractions_path) %>
 <%= link_to 'Log Out', logout_path %></p>
+</div>

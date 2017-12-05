@@ -31,7 +31,7 @@ class Ride < ActiveRecord::Base
     user.nausea = user.nausea.to_i + attraction.nausea_rating.to_i
     user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
     user.save
-        "Thanks for riding the #{self.attraction.name}!"
+    "Thanks for riding the #{self.attraction.name}!"
     #binding.pry
   end
 
