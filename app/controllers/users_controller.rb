@@ -21,12 +21,13 @@ class UsersController < ApplicationController
     redirect_to root_path unless session[:user_id]
     @user = User.find_by(id: params[:id])
   end
-  
-  def update
 
+  def update
+    @user = User.find_by(user_params)
 		ride = Ride.new(user: @user, attraction: Attraction.find(params[:user][:attraction]))
+    #binding.pry
+    #raise params.inspect
 		ride.take_ride
-		# raise @user.messages.inspect
 		redirect_to user_path(@user)
 	end
 

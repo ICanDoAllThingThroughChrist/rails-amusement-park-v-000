@@ -6,6 +6,8 @@ class Ride < ActiveRecord::Base
   def take_ride
     if enough_tickets && tall_enough
       update_status
+      #binding.pry
+      #raise params.inspect
     elsif !enough_tickets && tall_enough
         "Sorry. You do not have enough tickets to ride the #{attraction.name}."
     elsif enough_tickets && !tall_enough
@@ -25,6 +27,7 @@ class Ride < ActiveRecord::Base
 
   def update_status
     user.tickets = user.tickets.to_i - attraction.tickets.to_i
+    # raise params.inspect
     user.nausea = user.nausea.to_i + attraction.nausea_rating.to_i
     user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
     user.save

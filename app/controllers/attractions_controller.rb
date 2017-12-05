@@ -11,7 +11,7 @@ class AttractionsController < ApplicationController
 
   def show
     @user = current_user
-    raise params.inspect
+    #raise params.inspect
   end
 
   def create
