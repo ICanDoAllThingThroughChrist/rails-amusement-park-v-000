@@ -5,6 +5,7 @@ class Ride < ActiveRecord::Base
 
   def take_ride
     if enough_tickets && tall_enough
+      binding.pry
       update_status
       #binding.pry
       #raise params.inspect
@@ -31,8 +32,9 @@ class Ride < ActiveRecord::Base
     user.nausea = user.nausea.to_i + attraction.nausea_rating.to_i
     user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
     user.save
-    "Thanks for riding the #{self.attraction.name}!"
-    #binding.pry
+    binding.pry
+    puts "Thanks for riding the #{self.attraction.name}!"
+    binding.pry
   end
 
 

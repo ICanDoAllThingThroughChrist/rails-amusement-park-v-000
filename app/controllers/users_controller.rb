@@ -24,10 +24,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(user_params)
+    #raise params.inspect
 		ride = Ride.new(user: @user, attraction: Attraction.find(params[:user][:attraction]))
     #binding.pry
     #raise params.inspect
 		ride.take_ride
+    #raise params.inspect
+    binding.pry
 		redirect_to user_path(@user)
 	end
 
