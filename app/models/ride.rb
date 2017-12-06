@@ -5,16 +5,16 @@ class Ride < ActiveRecord::Base
 
   def take_ride
     if enough_tickets && tall_enough
-      binding.pry
+      #binding.pry
       update_status
       #binding.pry
       #raise params.inspect
     elsif !enough_tickets && tall_enough
-        "Sorry. You do not have enough tickets to ride the #{attraction.name}."
+      return "Sorry. You do not have enough tickets to ride the #{attraction.name}."
     elsif enough_tickets && !tall_enough
-      "Sorry. You are not tall enough to ride the #{attraction.name}."
+      return "Sorry. You are not tall enough to ride the #{attraction.name}."
     else
-       "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
+      return "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
     end
   end
 
@@ -32,9 +32,9 @@ class Ride < ActiveRecord::Base
     user.nausea = user.nausea.to_i + attraction.nausea_rating.to_i
     user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
     user.save
-    binding.pry
+    #binding.pry
     puts "Thanks for riding the #{self.attraction.name}!"
-    binding.pry
+    #binding.pry
   end
 
 

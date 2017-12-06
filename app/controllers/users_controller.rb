@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+  def index
+  end
+
   def new
-    @user = User.new
-    #raise params.inspect
+    @user = User.new #for form partial to pass in instance variable
+    raise params.inspect
   end
 
   def create
@@ -18,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to root_path unless session[:user_id]
     @user = User.find_by(id: params[:id])
+    if current_user != @user
   end
 
   def update
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
     #raise params.inspect
 		ride.take_ride
     #raise params.inspect
-    binding.pry
+    #binding.pry
 		redirect_to user_path(@user)
 	end
 
@@ -38,6 +41,7 @@ class UsersController < ApplicationController
   def user_params
      params.require(:user).permit(:name, :nausea, :happiness, :tickets, :height, :password, :admin )
   end
+end
 end
 
 #1-https://learn.co/tracks/full-stack-web-development-v3/rails/crud-with-rails/create-action
