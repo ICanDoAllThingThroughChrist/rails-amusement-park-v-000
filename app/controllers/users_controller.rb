@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
+
   def index
   end
 
   def new
     @user = User.new #for form partial to pass in instance variable
-    raise params.inspect
+    #raise params.inspect
   end
 
   def create
     #raise params.inspect
+    @user = User.new
     @user = User.create(user_params)
       if @user && @user.save
       #raise params.inspect
@@ -20,10 +23,9 @@ class UsersController < ApplicationController
       end
   end
 
-  def show
-    @user = User.find_by(id: params[:id])
-    if current_user != @user
-  end
+    def show
+     @user = User.find(params[:id])
+   end
 
   def update
     @user = User.find_by(user_params)
@@ -38,10 +40,15 @@ class UsersController < ApplicationController
 	end
 
   private
+
+  def require_login
+    redirect_to root_path unless session.include? :user_id
+  end
+
   def user_params
      params.require(:user).permit(:name, :nausea, :happiness, :tickets, :height, :password, :admin )
   end
 end
-end
+
 
 #1-https://learn.co/tracks/full-stack-web-development-v3/rails/crud-with-rails/create-action

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-resources :attractions, :users
+resources :attractions
+resources :users
 get     '/signin',    to: 'sessions#new'#1
 post    '/signin',    to: 'sessions#create'
 get     '/logout',    to: 'sessions#destroy'
