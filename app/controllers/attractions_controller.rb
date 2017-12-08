@@ -1,6 +1,7 @@
 class AttractionsController < ApplicationController
 
   before_action :set_attraction, only: [:show, :edit, :update]
+  before_action :require_admin, only: [:new, :create, :edit, :destroy]
 
   def index
     @attractions = Attraction.all
@@ -10,15 +11,19 @@ class AttractionsController < ApplicationController
   end
 
   def show
+    #@user = current_user
     @user = current_user
     #raise params.inspect
   end
 
   def create
-  @attraction = Attraction.new(attraction_params)
+    @attraction = Attraction.new(attraction_params)
+    #raise params.inspect
     if @attraction.save
+      #aise params.inspect
       redirect_to attraction_path(@attraction)
     else
+      flash[:alert] = user.errors.full_messages.join(", ")
       redirect_to new_attraction_path
     end
   end
@@ -40,5 +45,9 @@ class AttractionsController < ApplicationController
   def set_attraction
     @attraction = Attraction.find(params[:id])
   end
+
+   def require_admin
+     redirect_to attraction_path(@attraction) unless current_user.admin
+   end
 
 end

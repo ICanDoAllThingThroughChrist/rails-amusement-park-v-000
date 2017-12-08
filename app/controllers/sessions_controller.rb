@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       #redirect_to user
       # Log the user in and redirect to the user's show page.
     else
+#      raise params.inspect
       redirect_to '/signin'
       # Create an error message
     end

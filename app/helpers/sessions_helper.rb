@@ -5,5 +5,9 @@ module SessionsHelper
     #raise params.inspect
   end
 
-  
+  def current_user
+    #raise params.inspect
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
 end

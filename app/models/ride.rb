@@ -33,7 +33,7 @@ class Ride < ActiveRecord::Base
     user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
     user.save
     #binding.pry
-    puts "Thanks for riding the #{self.attraction.name}!"
+    return "Thanks for riding the #{self.attraction.name}!"
     #binding.pry
   end
 

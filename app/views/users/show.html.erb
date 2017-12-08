@@ -1,8 +1,7 @@
-<% if @user.admin %>
-USER IS ADMIN
-<% end %>
+<%= @user.name %>
+<%= 'ADMIN' if @user.admin %>
 
-<p><%= @message %></p>
+<h2><%= flash[:notice] if flash[:notice] %></h2>
 
 Name: <%= @user.name %><br>
 Mood: <%= @user.mood %><br>
