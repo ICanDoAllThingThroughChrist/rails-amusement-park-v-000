@@ -3,6 +3,9 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update]
   before_action :require_admin, only: [:new, :create, :edit, :destroy]
 
+  def new 
+    @attraction = Attraction.new
+  end 
   def index
     @attractions = Attraction.all
   end
@@ -12,7 +15,8 @@ class AttractionsController < ApplicationController
 
   def show
     #@user = current_user
-    @user = current_user
+    @attraction = Attraction.find_by(id: params[:id])
+    #binding.pry
     #raise params.inspect
   end
 

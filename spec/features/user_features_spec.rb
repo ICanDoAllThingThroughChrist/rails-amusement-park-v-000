@@ -320,6 +320,8 @@ describe 'Feature Test: Admin Flow', :type => :feature do
     click_link('See attractions')
     click_link("New Attraction")
     expect(current_path).to eq('/attractions/new')
+    #http://guides.rubyonrails.org/form_helpers.html
+    #http://guides.rubyonrails.org/form_helpers.html#understanding-parameter-naming-conventions
     fill_in("attraction[name]", :with => "Haunted Mansion")
     fill_in("attraction[min_height]", :with => "32")
     fill_in("attraction[happiness_rating]", :with => "2")
@@ -366,6 +368,7 @@ describe 'Feature Test: Admin Flow', :type => :feature do
   end
 
   it "updates an attraction when an admin edits it" do
+    #https://learn.co/tracks/full-stack-web-development-v3/rails/crud-with-rails/form_for-on-edit
     click_link('See attractions')
     click_link("Show #{@rollercoaster.name}")
     click_link("Edit Attraction")

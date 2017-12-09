@@ -1,5 +1,11 @@
 <div>
   <% @attractions.each do |attraction| %>
+  <% if current_user.admin %>
+  <div> <%= link_to "Show #{attraction.name}", attraction_path(attraction) %> </div>
+  <% else %>
    <div><%= link_to "Go on #{attraction.name}", attraction_path(attraction) %></div>
   <% end %>
+  <% end %>
 </div>
+<%# link_to "New Attractions", controller: "attractions", action: "show", id: @attractions %>
+<p> <%= link_to "New Attraction", new_attraction_path %> </p>
