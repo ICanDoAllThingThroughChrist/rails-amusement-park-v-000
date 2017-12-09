@@ -369,6 +369,7 @@ describe 'Feature Test: Admin Flow', :type => :feature do
 
   it "updates an attraction when an admin edits it" do
     #https://learn.co/tracks/full-stack-web-development-v3/rails/crud-with-rails/form_for-on-edit
+    #https://apidock.com/rails/ActionView/Helpers/FormTagHelper/number_field_tag
     click_link('See attractions')
     click_link("Show #{@rollercoaster.name}")
     click_link("Edit Attraction")
