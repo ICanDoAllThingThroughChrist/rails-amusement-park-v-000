@@ -8,7 +8,7 @@ class RidesController < ApplicationController
     @ride = Ride.create(ride_params)
     @alert = @ride.take_ride
     #binding.pry
-    flash[:notice] = @ride.take_ride
+    flash[:notice] = @alert
     #binding.pry
     redirect_to user_path(@ride.user)
     #binding.pry

@@ -30,8 +30,8 @@ class Ride < ActiveRecord::Base
   end
 
   def update_status
-    user.tickets = self.user.tickets.to_i-self.attraction.tickets.to_i
-    #user.save
+    self.user.tickets= self.user.tickets.to_i-self.attraction.tickets.to_i
+    self.user.save
     #raise params.inspect
     #binding.pry
     user.nausea = self.user.nausea.to_i + self.attraction.nausea_rating.to_i
