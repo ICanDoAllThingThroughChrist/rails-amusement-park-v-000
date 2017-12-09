@@ -11,10 +11,13 @@ class Ride < ActiveRecord::Base
       #raise params.inspect
     elsif !enough_tickets && tall_enough
       return "Sorry. You do not have enough tickets to ride the #{attraction.name}."
+      #binding.pry
     elsif enough_tickets && !tall_enough
       return "Sorry. You are not tall enough to ride the #{attraction.name}."
+      #binding.pry
     else
       return "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
+      #binding.pry
     end
   end
 
@@ -27,10 +30,12 @@ class Ride < ActiveRecord::Base
   end
 
   def update_status
-    user.tickets = user.tickets.to_i - attraction.tickets.to_i
-    # raise params.inspect
-    user.nausea = user.nausea.to_i + attraction.nausea_rating.to_i
-    user.happiness = user.happiness.to_i + attraction.happiness_rating.to_i
+    user.tickets = self.user.tickets.to_i-self.attraction.tickets.to_i
+    #user.save
+    #raise params.inspect
+    #binding.pry
+    user.nausea = self.user.nausea.to_i + self.attraction.nausea_rating.to_i
+    user.happiness = self.user.happiness.to_i + self.attraction.happiness_rating.to_i
     user.save
     #binding.pry
     return "Thanks for riding the #{self.attraction.name}!"
