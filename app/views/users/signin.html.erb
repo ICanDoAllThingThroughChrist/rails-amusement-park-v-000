@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+=======
+<%= form_for @user, url: "/users/login" do |f| %>
+    <%= f.collection_select(:id, @users, :id, :name) %>
+    <%= f.submit "Sign In"  %>
+<% end %>
+>>>>>>> 839634bb775fb5d76161ade74cb4abdb60adc940
